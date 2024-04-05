@@ -1,0 +1,54 @@
+import java.util.Arrays;
+
+public class Main {
+    
+    // Tarea 1
+    public static int diferenciaMaxMin(int[] array) {
+        int min = array[0];
+        int max = array[0];
+        
+        // Encuentra el valor mínimo y máximo en el array
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        
+        // Devuelve la diferencia entre el valor máximo y mínimo
+        return max - min;
+    }
+    
+    // Tarea 2
+    public static void imprimeDosMenores(int[] array) {
+        int smallest = Integer.MAX_VALUE;
+        int secondSmallest = Integer.MAX_VALUE;
+        
+        // Encuentra los dos valores más pequeños en el array
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < smallest) {
+                secondSmallest = smallest;
+                smallest = array[i];
+            } else if (array[i] < secondSmallest && array[i] != smallest) {
+                secondSmallest = array[i];
+            }
+        }
+        
+        // Imprime los dos valores más pequeños
+        System.out.println("El elemento más pequeño es: " + smallest);
+        System.out.println("El segundo elemento más pequeño es: " + secondSmallest);
+    }
+    
+    public static void main(String[] args) {
+        // Ejemplo de uso
+        int[] array = {4, 9, 2, 7, 5, 3};
+        
+        System.out.println("Diferencia entre el valor máximo y mínimo: " + diferenciaMaxMin(array));
+        
+        System.out.println("Dos elementos más pequeños:");
+        imprimeDosMenores(array);
+    }
+}
+
